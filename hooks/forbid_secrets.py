@@ -14,7 +14,7 @@ def contains_secret(filename):
             sops_secret = re.findall(SOPS_REGEX, lines, flags=re.IGNORECASE | re.MULTILINE)
             if not sops_secret:
                 return True
-        return False
+    return False
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
