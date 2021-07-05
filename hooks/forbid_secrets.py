@@ -4,8 +4,8 @@ import argparse
 import re
 import sys
 
-SECRET_REGEX = r"^kind:\ssecret"
-SOPS_REGEX = r"ENC.AES256"
+SECRET_REGEX = r"key:"
+SOPS_REGEX = r"ENC\[AES256"
 
 def contains_secret(filename):
     with open(filename, mode="r") as file_checked:
