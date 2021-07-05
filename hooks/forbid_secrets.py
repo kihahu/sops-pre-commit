@@ -5,7 +5,7 @@ import re
 import sys
 
 SECRET_REGEX = r"key:"
-SOPS_REGEX = r"ENC\[AES256"
+SOPS_REGEX = r"ENC\[AES256_GCM"
 
 def contains_secret(filename):
     with open(filename, mode="r") as file_checked:
