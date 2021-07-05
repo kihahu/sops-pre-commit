@@ -4,19 +4,21 @@ import argparse
 import re
 import sys
 
+SECRET_FILE_REGEX = "secret"
 SOPS_REGEX = r"ENC[AES256"
 
 def contains_secret(filename):
-    with open(filename, mode="r") as file_checked:
-        lines = file_checked.read()
-        sops_secret = re.findall(SOPS_REGEX, lines, flags=re.IGNORECASE | re.MULTILINE)
-        if not sops_secret:
-            return True
-    return False
+    if SECRET_FILE_REGEX in filename:
+        with open(filename, mode="r") as file_checked:
+            lines = file_checked.read()
+            sops_secret = re.findall(SOPS_REGEX, lines, flags=re.IGNORECASE | re.MULTILINE)
+            if not sops_secret:
+                return True
+        return False
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument('filenames', nargs='*secret*', help='filenames to check')
+    parser.add_argument('filenames', nargs='*', help='filenames to check')
     args = parser.parse_args(argv)
     files_with_secrets = [f for f in args.filenames if contains_secret(f)]
     return_code = 0

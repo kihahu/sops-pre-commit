@@ -3,8 +3,8 @@ from setuptools import find_packages, setup
 setup(
     name='sops-pre-commit',
     description='Check for unencrypted Kubernetes secrets in manifest files',
-    url='https://github.com/k8s-at-home/sops-pre-commit',
-    version='2.0.3',
+    url='https://github.com/AndresJulia/sops-pre-commit',
+    version='2.0.5',
 
     author='Devin Buhl',
     author_email='devin.kray@gmail.com',
