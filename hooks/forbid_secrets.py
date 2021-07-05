@@ -5,7 +5,7 @@ import re
 import sys
 
 SECRET_FILE_REGEX = "secret"
-SOPS_REGEX = r"ENC[AES256"
+SOPS_REGEX = r"AES256"
 
 def contains_secret(filename):
     if SECRET_FILE_REGEX in filename:
