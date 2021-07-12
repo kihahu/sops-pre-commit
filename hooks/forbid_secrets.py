@@ -4,7 +4,7 @@ import argparse
 import re
 import sys
 
-SECRET_FILE_REGEX = "secret"
+SECRET_FILE_REGEX = "secrets"
 SOPS_REGEX = r"AES256"
 
 def contains_secret(filename):
